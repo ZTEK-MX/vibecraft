@@ -9,10 +9,15 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "typecheck": "turbo typecheck"
+    "typecheck": "turbo typecheck",
+    "db:migrate": "cd packages/db && npx knex migrate:latest",
+    "db:rollback": "cd packages/db && npx knex migrate:rollback",
+    "db:seed": "cd packages/db && npx knex seed:run",
+    "db:reset": "cd packages/db && npx knex migrate:rollback --all && npx knex migrate:latest && npx knex seed:run"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@types/pg": "^8.23.1",
     "eslint": "^10.11.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.6",
@@ -24,5 +29,10 @@
   "packageManager": "pnpm@10.34.5",
   "engines": {
     "node": ">=20"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.4",
+    "knex": "^3.3.0",
+    "pg": "^8.23.0"
   }
 }

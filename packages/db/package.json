@@ -1,0 +1,21 @@
+{
+  "name": "@vibecraft/db",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "migrate": "knex migrate:latest",
+    "migrate:rollback": "knex migrate:rollback",
+    "seed": "knex seed:run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "knex": "^3.3.0",
+    "pg": "^8.23.0"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.23.1",
+    "typescript": "^5.9.2"
+  }
+}
